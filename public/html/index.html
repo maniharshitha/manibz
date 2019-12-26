@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+	<style>
+		td{
+		width:100px;
+		height:100px;
+		font-size:3em;
+		text-align:center;
+		}
+		.fullb{
+			border:2px solid #1C6EA4;
+			}
+		.lrb{
+			border-left:2px solid #1C6EA4;
+			border-right:2px solid #1C6EA4;
+		}
+		.tbb{
+			border-top:2px solid #1C6EA4;
+			border-bottom:2px solid #1C6EA4;
+		}
+	</style>
+</head>
+<body>
+	<h1 class = "text-primary text-center">tic tac toe</h1>
+	<table>
+  <tr>
+    <td></td>
+    <td class ="lrb"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class = "tbb"></td>
+    <td class = "fullb"></td>
+    <td class = "tbb"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class = "lrb"></td>
+    <td></td>
+  </tr>
+</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script>
+	var isX = true;
+	var arr = new Array(3);
+	arr[0] = new Array(3);
+	arr[1] = new Array(3);
+	arr[2] = new Array(3);
+	$("table td").click(function(){
+		var c = $(this).index();
+		var r = $(this).parent().index();
+		alert(r + " " + c);
+		if(isX === true)
+		{
+			$(this).text("X");
+			arr[r][c]= 'X';
+			isX = !isX;
+		}
+		else
+		{
+			$(this).text("O");
+			arr[r][c]= 'O';
+			isX = !isX;
+		}
+		for(var i=0;i<3;i++)
+		{
+			var str = "";
+			for(var j=0;j<3;j++)
+				str += arr[i][j]+=" ";
+		}		
+		console.log(str);
+	})
+</script>	
+</body>
+</html>
